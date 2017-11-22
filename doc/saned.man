@@ -257,8 +257,23 @@ installed on the system. this is the preferred option.
 Saned can be used wih systemd without the systemd integration
 compiled in, but then logging of debug information is not supported.
 
-The systemd configuration is different for the 2 options, so
-both are described below.
+The systemd configuration is different for the 2 options, but you need
+to create unit files in both options and then run as root:
+.PP
+.RS
+systemctl start saned.socket
+.RE
+.PP
+to start saned. If you want to have saned.socket running after startup, run as
+root: 
+.PP
+.RS
+systemctl enable saned.socket
+.RE
+.PP
+
+The systemd configuration of both options is described below.
+
 .SH Systemd configuration for saned with systemd support compiled in
 for the systemd configuration we need to add 2 configuration files in
 .I /etc/systemd/system.
